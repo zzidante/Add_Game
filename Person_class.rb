@@ -17,13 +17,3 @@ class Player
   end
 
 end
-
-# puts playerOne = Player.new("Bob")
-# puts playerTwo = Player.new("Grace")
-
-# puts playerOne.name
-# puts playerTwo.name 
-
-# puts playerOne.lose_life
-
-# puts playerOne.lives 

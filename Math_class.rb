@@ -16,8 +16,3 @@ class MathQuestion
   end
 
 end
-
-# questionOne = MathQuestion.new 
-
-# puts questionOne.get_question
-# puts questionOne.get_answer

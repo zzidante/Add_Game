@@ -1,6 +1,5 @@
 class Player
-  attr_accessor :name
-  attr_accessor :answer  
+  attr_accessor :name, :answer
   attr_reader :lives
 
   def initialize(name)
@@ -13,8 +12,22 @@ class Player
     @lives -= 1
   end
 
+  def is_alive?
+    @lives > 0
+  end
+
   def answer_question(answer)
-    @answer = $stdin.gets.chomp
+    @answer = answer
   end
 
 end
+
+# puts playerOne = Player.new("Bob")
+# puts playerTwo = Player.new("Grace")
+
+# puts playerOne.name
+# puts playerTwo.name 
+
+# puts playerOne.lose_life
+
+# puts playerOne.lives 

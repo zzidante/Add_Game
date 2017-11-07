@@ -9,28 +9,39 @@ class GameState
     @turn = true
   end
 
+  
   def play_game
     puts "Welcome #{@playerOne.name} and #{@playerTwo.name}. \n#{@playerOne.name} goes first."
 
     while @playerOne.is_alive? && @playerTwo.is_alive?
       question = MathQuestion.new
       puts question.get_question
-      player_answer = gets.chomp.to_i      
+      player_answer = gets.chomp.to_i
 
-      if @turn == true 
-        if player_answer != question.get_answer
-          @playerOne.lose_life
+      if player_answer != question.get_answer  
+        if @turn == true 
+            @playerOne.lose_life
         end
+
+        if @turn == false 
+          @playerTwo.lose_life
+        end 
       end
 
-      if @turn == false 
-        if player_answer != question.get_answer
-          @playerTwo.lose_life
-        end
-      end 
-    puts "Player One: #{@playerOne.lives}/3 || Player Two: #{@playerTwo.lives}/3"
-    @turn = !@turn                      
+      puts "#{@playerOne.name}: #{@playerOne.lives}/3 vs #{@playerTwo.name}: #{@playerTwo.lives}/3"
+      @turn = !@turn
+      if @playerOne.is_alive? && @playerTwo.is_alive?
+        puts "----- NEW TURN ----"
+      end            
     end
+
+    if @playerOne.is_alive?
+      puts "Congrats #{@playerOne.name} you win with a score of #{@playerOne.lives}/3!"
+    else
+      puts "Congrats #{@playerTwo.name} you win with a score of #{@playerTwo.lives}/3!"
+    end
+
+    puts "----- GAME OVER ----\nGoodbye!"
   end
 end
 

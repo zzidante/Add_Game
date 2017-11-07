@@ -16,10 +16,6 @@ class Player
     @lives > 0
   end
 
-  def answer_question(answer)
-    @answer = answer
-  end
-
 end
 
 # puts playerOne = Player.new("Bob")
